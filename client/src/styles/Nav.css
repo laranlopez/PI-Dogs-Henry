@@ -1,0 +1,79 @@
+.peso {
+    height: 30px;
+    width: 140px;
+    color: black;
+    background-color: white;
+    border-color: rgba(228, 124, 5);
+    border-radius: 5px;
+    border-style: 2px solid;
+    font-size: medium;
+    font-family: Verdana;
+    cursor: pointer;
+    margin-right: 35px;
+}
+
+.peso:hover {
+    transform: scale(1.1);
+    color: rgb(232, 111, 41);
+ box-shadow: 0 0 10px rgb(232, 111, 41), 0 0 40px rgb(232, 111, 41), 0 0 70px rgb(232, 111, 41);
+}
+
+.alfab {
+    height: 30px;
+    width: 130px;
+    color: black;
+    background-color: white;
+    border-color: rgba(228, 124, 5);
+    border-radius: 5px;
+    border-style: 2px solid;
+    font-size: medium;
+    font-family: Verdana;
+    cursor: pointer;
+    margin-right: 35px;
+}
+
+.alfab:hover {
+    transform: scale(1.1);
+    color: rgb(232, 111, 41);
+ box-shadow: 0 0 10px rgb(232, 111, 41), 0 0 40px rgb(232, 111, 41), 0 0 70px rgb(232, 111, 41);
+}
+
+.temper {
+    height: 30px;
+    width: 145px;
+    color: black;
+    background-color: white;
+    border-color: rgba(228, 124, 5);
+    border-radius: 5px;
+    border-style: 2px solid;
+    font-size: medium;
+    font-family: Verdana;
+    cursor: pointer;
+    margin-right: 35px;
+}
+
+.temper:hover {
+    transform: scale(1.1);
+    color: rgb(232, 111, 41);
+ box-shadow: 0 0 10px rgb(232, 111, 41), 0 0 40px rgb(232, 111, 41), 0 0 70px rgb(232, 111, 41);
+}
+
+.todos {
+    height: 30px;
+    width: 120px;
+    color: black;
+    background-color: white;
+    border-color: rgba(228, 124, 5);
+    border-radius: 5px;
+    border-style: 2px solid;
+    font-size: medium;
+    font-family: Verdana;
+    cursor: pointer;
+    margin-right: 35px;
+}
+
+.todos:hover {
+    transform: scale(1.1);
+    color: rgb(232, 111, 41);
+ box-shadow: 0 0 10px rgb(232, 111, 41), 0 0 40px rgb(232, 111, 41), 0 0 70px rgb(232, 111, 41);
+}

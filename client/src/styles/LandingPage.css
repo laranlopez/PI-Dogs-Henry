@@ -1,0 +1,41 @@
+.fondo {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://img.freepik.com/fotos-premium/perro-sonriente-feliz-que-toma-autorretrato-playa_145134-352.jpg?w=2000');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.titulo {
+    height: 100px;
+    width: 500px;
+    position: absolute;
+    top: 30%;
+    margin-left: 80px;
+    color: black;
+    text-shadow: gray 0 2px  ;
+    font-style: italic ;
+    font-family:'Lucida Sans';
+}
+
+.btn {
+    padding: .375rem .75rem;
+    border: 1px solid rgba(255, 85, 0, 0.844);  
+    border-radius: .25rem;
+    color: rgb(232, 111, 41);
+      font-style: italic;
+      font-family:Verdana;
+      letter-spacing: 3px;
+      transition: 0,2;
+      
+
+}
+
+.btn:hover{
+    color: rgb(232, 111, 41);
+ box-shadow: 0 0 10px rgb(232, 111, 41), 0 0 40px rgb(232, 111, 41), 0 0 70px rgb(232, 111, 41);
+}

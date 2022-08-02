@@ -1,0 +1,95 @@
+.home {
+  /* background-image: url('https://images.ecestaticos.com/H4CUeGslvPRglrmCtaP7A4wz9KQ=/0x115:2265x1390/1600x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F8ec%2F08c%2F85c%2F8ec08c85c866ccb70c4f1c36492d890f.jpg'); */
+background-color: beige;
+}
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgb(228, 183, 5);
+  opacity: value;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(141, 147, 39, 0.442);
+  outline: 1px solid rgb(228, 198, 5);
+  opacity: value; 
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    box-sizing: content-box;
+}
+
+.created_dog {
+    width: 300px;
+    height: 50px;
+}
+  .b1 {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    position: relative;
+    left: 15px;
+    top: 0;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: black;
+    font: size 18px;
+    font-style: italic;
+    font-family: Verdana;
+    letter-spacing: 3px;
+    border: 1px solid rgba(255, 85, 0, 0.844);
+    border-radius: .25rem;
+  }
+
+  .b1:Hover{
+    transform: scale(1.1);
+    color: rgb(232, 111, 41);
+ box-shadow: 0 0 10px rgb(232, 111, 41), 0 0 40px rgb(232, 111, 41), 0 0 70px rgb(232, 111, 41);
+  }
+
+
+.load {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+
+.search {
+    margin: 10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.pag {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ref {
+  height: 35px;
+  width: 115px;
+  color: rgba(228, 124, 5);
+  font-size: medium;
+  font-family: Verdana;
+  cursor: pointer;
+  border-color: rgba(228, 124, 5);
+  border-radius: .25rem;
+  letter-spacing: 1.5px;
+}
+
+.ref:hover{
+  transform: scale(1.1);
+    color: rgb(232, 111, 41);
+ box-shadow: 0 0 10px rgb(232, 111, 41), 0 0 40px rgb(232, 111, 41), 0 0 70px rgb(232, 111, 41);
+}
