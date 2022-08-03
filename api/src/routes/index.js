@@ -67,41 +67,14 @@ router.get('/dogs/:idRaza', async (req, res) => {
 
 router.get('/temperaments', async (req, res) => {
         try{
-            const apiTemp = await getDogsfromApi();
-
-            // arreglo con todos los temperamentos como strings:
-            
-            const temperaments = await apiTemp.map(e =>
+            const apiTemp = await getDogsfromApi();      
+            const temperaments = await apiTemp.map(e => 
             (e.temperament)); 
 
-            /*temperaments = ['Active, Playful, Adveturous',
-            'Curious, Funny, Fearless',
-            'Brave, Playful, Intelligent, Stubborn'] */
-
-            // arreglo con todos los temperamentos separados
-            // por coma y espacio. el método flat, crea un nuevo
-            // arreglo con TODOS los elementos concatenados:
-
             const arrayTemp = temperaments.map((temp) => 
-            (temp ? temp.split(', ') : null)).flat();
-            /* .split ---> [["Active", "Playful", "Adveturous"],
-            ["Curious", "Funny", "Fearless"],
-            ["Brave", "Playful", "Intelligent", "Stubborn"]] */ 
-
-            /* arrayTemp = ["Active", "Playful", "Adveturous", "Curious",
-            "Funny", "Fearless", "Brave", "Playful", 
-            "Intelligent", "Stubborn"] */
-            
-            // arreglo para dejar temperamentos SIN repetir y no nulos
-            // y agregarlos al modelo Temperament:
+            (temp ? temp.split(' , ') : null)).flat();
 
             const temperamentUnique = [...new Set(arrayTemp)];
-
-            /* new Set(arrayTemp) ---> {"Active", "Playful", "Adventurous", "Curious",
-            "Funny", "Fearless", "Brave", "Intelligent", "Stubborn"} */
-
-            /* temperamentUnique = ["Active", "Playful", "Adveturous", "Curious", "Funny",
-            "Fearless", "Brave", "Intelligent", "Stubborn"] */
             
             temperamentUnique.filter(temp => temp !== null).forEach(
                 async (temp) => await Temperament.findOrCreate({
@@ -136,7 +109,7 @@ router.post('/dog', async (req, res) => {
         createdInDb } = req.body;
 
     if(!image){             // Toma imagen por default cuando no hay imagen por body
-        image = 'https://img2.freepng.es/20180717/oiz/kisspng-dog-training-bone-clip-art-dog-decoration-5b4dbe32e59371.6693743915318216189404.jpg';
+        image = 'https://img.freepik.com/vector-premium/silueta-basset-hound-perro-silueta-sombra-cachorro-icono-vector_81894-5180.jpg';
     }
 
     if(name && heightMin && heightMax && weightMin &&
