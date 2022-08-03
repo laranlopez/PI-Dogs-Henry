@@ -40,8 +40,8 @@ export default function Home() {
 
 
     return(
-        <div className='home'>
-            <div className='create_dog'>
+<div className='home'>
+          <div className='create_dog'>
                 <Link to='/dog'>
                     <button className="b1">CREA TU RAZA</button>
                 </Link>
@@ -50,19 +50,19 @@ export default function Home() {
                 <button onClick={e => handleClick(e)}
                 className='ref'>RECARGAR</button>
             </div>
-            <div className='search'>
+            <div className='busq'>
                 <SearchBar />
             </div>
-            <div className='nav'>
+            <div className='filtros'>
                 <Nav />
             </div>
-            <div className='pag'>
+            <div className='paginado'>
                 <Pagination
                     dogsPerPage={dogsPerPage}
                     allDogs={allDogs.length}
                     paginate={paginate}
                 />
-            </div>
+                </div>
             <div className='cards'>
                 {currentDog.length > 0 ? (
                     currentDog.map(e => {

@@ -1,7 +1,4 @@
-.home {
-  /* background-image: url('https://images.ecestaticos.com/H4CUeGslvPRglrmCtaP7A4wz9KQ=/0x115:2265x1390/1600x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F8ec%2F08c%2F85c%2F8ec08c85c866ccb70c4f1c36492d890f.jpg'); */
-background-color: beige;
-}
+
 body::-webkit-scrollbar {
   width: 1em;
 }
@@ -16,19 +13,26 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid rgb(228, 198, 5);
   opacity: value; 
 }
+.home {
+  /* background-image: url('https://images.ecestaticos.com/H4CUeGslvPRglrmCtaP7A4wz9KQ=/0x115:2265x1390/1600x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F8ec%2F08c%2F85c%2F8ec08c85c866ccb70c4f1c36492d890f.jpg'); */
+background-color: beige;
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     box-sizing: content-box;
+    height: 25%;
 }
 
 .created_dog {
     width: 300px;
-    height: 50px;
+    height: 25%;
+    margin-top: 10px;
 }
   .b1 {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 0px;
     position: relative;
     left: 15px;
@@ -44,6 +48,7 @@ body::-webkit-scrollbar-thumb {
     letter-spacing: 3px;
     border: 1px solid rgba(255, 85, 0, 0.844);
     border-radius: .25rem;
+  
   }
 
   .b1:Hover{
@@ -58,22 +63,24 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
     margin-left: 150px;
     margin-right: 150px;
+    
 }
 
+.busq {  
+   margin: 8px;
 
-.search {
-    margin: 10px;
 }
 
-.nav {
+.filtros {
     display: flex;
     justify-content: space-around;
 }
 
-.pag {
+.paginado {
     display:flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
 .ref {

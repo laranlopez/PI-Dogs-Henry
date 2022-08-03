@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { postDog, listOfTemperaments } from '../actions/index';
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/CreateDog.css';
 
 export default function CreateDog(){
     const dispatch = useDispatch();
-    const navigate = useHistory();
+    const navigate = useNavigate();
     const temperaments = useSelector((state) => state.temperaments);
 
     useEffect(() => {
@@ -16,16 +16,16 @@ export default function CreateDog(){
 
     const[input, setInput] = useState({
         name: '',
-        heightMin: '',
-        heightMax: '',
-        weightMin: '',
-        weightMax: '',
+        heightMin: 0,
+        heightMax: 0,
+        weightMin: 0,
+        weightMax: 0,   
         lifespan: '',
         image: '',
         temperament: [],
     })
 
-    const [error, setError] = useState({});
+    const [error, setError] = useState({first:true});
 
     const validations = function(input){
         const error = {}
@@ -35,55 +35,40 @@ export default function CreateDog(){
         else if(!/^[a-zA-Z\s]*$/.test(input.name)) {
             error.name = "Solo debe contener letras y espacios";
         }
-        if(!input.heightMin){
-            error.heightMin = 'Altura Min es requerido';
+        if(!Number(input.heightMin) || Number(input.heightMin) < 0 ){
+            error.heightMin = 'Debe ingresar una altura min, mayor a 0';
         }
-        if(!input.heightMax){
-            error.heightMax = 'Altura Max es requerido';
+       else if(Number(input.heightMin) > Number(input.heightMax)){
+            error.heightMin = 'Altura Min no puede ser mayor a la altura maxima';
         }
-        if(!input.weightMin){
-            error.weightMin = 'Peso Min es requerido';
+        if(!Number(input.heightMax) || Number(input.heightMax) < 0){
+            error.heightMax = 'Debe ingresar una altura max, mayor a 0';
         }
-        if(!input.weightMax){
-            error.weightMax = 'Peso Max es requerido';
+        if(!Number(input.weightMin) || Number(input.weightMin)< 0 ){
+            error.weightMin = 'Debe ingresar un peso minimo, mayor a 0';
         }
-        if(input.heightMin < 0){
-            error.heightMin = 'Altura Min debe ser mayor a 0';
-        }
-        if(input.heightMin > input.heightMax){
-            error.heightMin = 'Altura Min no puede ser mayor al peso maximo';
-        }
-        
-        if(input.heightMax < 0){
-            error.heightMax = 'Altura Max debe ser mayor a 0';
-        }
-        
-        if(input.weightMin< 0){
-            error.weightMin = 'Peso Min debe ser mayor a cero';
-        }
-        if(input.weightMin > input.weightMax){
+        if(Number(input.weightMin) > Number(input.weightMax)){
             error.weightMin = 'Peso Min no puede ser mayor al peso maximo';
-        }
-        if(input.weightMax < 0){
-            error.weightMax = 'Weight Max debe ser mayor a 0';
-        }
-        if(input.lifespan < 0){
-            error.lifespan = 'debe ser mayor a 0';
+         }
+         if(!Number(input.weightMax) ||Number(input.weightMax) < 0 ){
+            error.weightMax = 'Debe ingresar un peso max, mayor a 0';
+         }
+        if(Number(input.lifespan) < 0 || Number(input.lifespan )> 30){
+            error.lifespan = 'debe ser entre 0 y 30 ';
         }
         return error;
     }
 //------------------------------------------------------------------------------------------
     const handleChangeInput = (e) => {
         e.preventDefault();
-        setInput(input => {
-            const newInput = {
-                ...input,
-                [e.target.name] : e.target.value
-        }
-        const error = validations(newInput);
-        setError(error);
-        return newInput;
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
         })
+        setError(validations({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
     }
 //------------------------------------------------------------------------------------------
     function handleSelect(e){
@@ -108,10 +93,10 @@ export default function CreateDog(){
             alert('Raza creada!')
             setInput({
                 name: '',
-                heightMin: '',
-                heightMax: '',
-                weightMin: '',
-                weightMax: '',
+                heightMin: 0,
+                heightMax: 0,
+                weightMin: 0,
+                weightMax: 0,
                 lifespan: '',
                 image: '',
                 temperament: [],
@@ -144,32 +129,31 @@ export default function CreateDog(){
                         <span>
                             <label>Min* </label>
                             <input className='amin'
-                            type='text'
+                            type='number'
                             value={input.heightMin}
                             placeholder='Solo numeros'
                             name='heightMin'
                             onChange={(e) => handleChangeInput(e)}
-                            autoComplete="off"
+
                             />
                             <label>Max* </label>
                             <input className='amax'
-                            type='text'
+                            type='number'
                             value={input.heightMax}
                             placeholder='Solo numeros'
                             name='heightMax'
                             onChange={(e) => handleChangeInput(e)}
-                            autoComplete="off"
                             />
                         </span>
-                        {error.heightMin && <p className='err'>{error.heightMin}</p>}
-                        {error.heightMax && <p className='err'>{error.heightMax}</p>}
+                        {!error.heightMin ? null: <p className='err'>{error.heightMin}</p>}
+                        {!error.heightMax ? null: <p className='err'>{error.heightMax}</p>}
                     </div>
                     <div className='pemin'>
                         <h2 className='tpemin'>Peso* (kg)</h2>
                         <span>
                             <label>Min* </label>
                             <input className='pmin'
-                            type='text'
+                            type='number'
                             value={input.weightMin}
                             placeholder='Solo numeros'
                             name='weightMin'
@@ -178,7 +162,7 @@ export default function CreateDog(){
                             />
                             <label>Max* </label>
                             <input className='pmax'
-                            type='text'
+                            type='number'
                             value={input.weightMax}
                             placeholder='Solo numeros'
                             name='weightMax'
@@ -251,3 +235,15 @@ export default function CreateDog(){
         </div>
     );
 }
+
+
+// setInput(input => {
+//     const newInput = {
+//         ...input,
+//         [e.target.name] : e.target.value
+// }
+// const error = validations(newInput);
+// setError(error);
+// return newInput;
+// })
+// }
