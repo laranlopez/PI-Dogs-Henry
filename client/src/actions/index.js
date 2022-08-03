@@ -12,8 +12,6 @@ export function getDogs(){
     }
 }
 
-//---------------------------------------------------------------------------
-
 //action que permite renderizar todos los temperamentos en Home
 
 export function listOfTemperaments(){
@@ -26,7 +24,6 @@ export function listOfTemperaments(){
     }
 }
 
-//---------------------------------------------------------------------------
 
 //action que permite filtrar los temperamentos
 
@@ -37,7 +34,6 @@ export function filterByTemp(payload){
     }
 }
 
-//---------------------------------------------------------------------------
 
 //action que permite filtrar el origen de los perros (API, DB)
 
@@ -48,7 +44,6 @@ export function filterByCreated(payload){
     }
 }
 
-//---------------------------------------------------------------------------
 
 //action que permite ordenar alfabéticamente por nombre
 
@@ -59,7 +54,6 @@ export function orderByName(payload){
     }
 }
 
-//---------------------------------------------------------------------------
 
 //action que permite ordenar peso de menor a mayor y viceversa
 
@@ -70,7 +64,6 @@ export function orderByWeight(payload){
     }
 }
 
-//---------------------------------------------------------------------------
 
 //action que busca perros por nombre 
 
@@ -89,7 +82,6 @@ export function getNameDogs(name){
     }
 }
 
-//---------------------------------------------------------------------------
 
 //action que recibe la info con el perro a crear
 
@@ -100,7 +92,6 @@ export function postDog(payload){
     }
 }
 
-//---------------------------------------------------------------------------
 
 //action que recibe la info con los detalles del perro 
 

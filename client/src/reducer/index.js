@@ -42,7 +42,7 @@ function rootReducer (state = initialState, action){
             let api = state.allDogsEver.filter(e => !e.createdInDb);
             if (action.payload === 'dog_db'){
                 if(!db.length){
-                    alert('There is not dogs created yet');
+                    alert('No hay perros creados aun');
                     return {
                         ...state,
                         dogs: state.allDogsEver
@@ -111,6 +111,7 @@ function rootReducer (state = initialState, action){
             return{
                 ...state,
                 dogDetails: action.payload
+            
             }
         default:
         return state;
