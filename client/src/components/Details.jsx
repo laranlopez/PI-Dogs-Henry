@@ -13,7 +13,7 @@ export default function Details(){
     const { id } = useParams();
 
     useEffect(() => {
-        dispatch(getDetails(id));
+      dispatch(getDetails(id));
     });
 
 
