@@ -113,6 +113,13 @@ function rootReducer (state = initialState, action){
                 dogDetails: action.payload
             
             }
+       case 'SET_DETAILS':
+                return{
+                    ...state,
+                    dogDetails: []
+                
+                }
+
         default:
         return state;
     }

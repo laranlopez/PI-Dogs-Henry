@@ -5,7 +5,7 @@ import { getNameDogs } from '../actions/index';
 import '../styles/Home.css';
 import '../styles/SearchBar.css'
 
-export default function SearchBar(){
+export default function SearchBar({paginate}){
     const dispatch = useDispatch();
     const [name, setName] = useState('');
 
@@ -17,6 +17,7 @@ export default function SearchBar(){
             dispatch(getNameDogs(name));
             setName('');
         }
+        paginate(1)
     };
 
     return (

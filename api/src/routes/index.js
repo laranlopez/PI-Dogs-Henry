@@ -70,12 +70,13 @@ router.get('/temperaments', async (req, res) => {
             const apiTemp = await getDogsfromApi();      
             const temperaments = await apiTemp.map(e => 
             (e.temperament)); 
-
+                
             const arrayTemp = temperaments.map((temp) => 
-            (temp ? temp.split(' , ') : null)).flat();
+            (temp ? temp.split(', ') : null)).flat();
 
             const temperamentUnique = [...new Set(arrayTemp)];
             
+
             temperamentUnique.filter(temp => temp !== null).forEach(
                 async (temp) => await Temperament.findOrCreate({
                     where: {temperament: temp},
@@ -84,6 +85,7 @@ router.get('/temperaments', async (req, res) => {
             const allTemperaments = await Temperament.findAll({
                 order: [["temperament", "ASC"]],
             });
+            console.log(temperamentUnique)
             res.send(allTemperaments);
         } catch (error){
             console.log(error);

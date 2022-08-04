@@ -7,15 +7,15 @@ import Loading from './Loading';
 import '../styles/Details.css';
 
 export default function Details(){
+
     const allDetails = useSelector((state) => state.dogDetails);
     const dispatch = useDispatch();
-    
+
     const { id } = useParams();
 
-    useEffect(() => {
+    useEffect(() => {   
       dispatch(getDetails(id));
-    });
-
+    },[dispatch]);
 
     return (
         <div className='detal'>

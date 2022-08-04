@@ -2,16 +2,17 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogs, listOfTemperaments, filterByTemp, filterByCreated,
-    orderByName, orderByWeight } from '../actions/index';
+    orderByName, orderByWeight} from '../actions/index';
 import Loading from './Loading';
 import '../styles/Home.css';
 import '../styles/Nav.css'
 
-export default function Nav(){
+export default function Nav({paginate}){
     const dispatch = useDispatch();
     const temperaments = useSelector((state) => state.temperaments); 
-    const [, setCurrentPage] = useState(1);
+    const [currentPage,setCurrentPage] = useState(1);
 
+    console.log(temperaments)
     useEffect (() => {
         dispatch(listOfTemperaments());
         dispatch(getDogs());
@@ -27,19 +28,23 @@ export default function Nav(){
         e.preventDefault();
         dispatch(filterByTemp(e.target.value));
         setCurrentPage(1);
+        paginate(1)
     }
 //------------------------------------------------------------------------------------------
     function handleOrderByName(e){
         e.preventDefault();
         dispatch(orderByName(e.target.value));
         setCurrentPage(1);
+        paginate(1)
     }
 //------------------------------------------------------------------------------------------
     function handleOrderByWeight(e){
         e.preventDefault();
         dispatch(orderByWeight(e.target.value));
         setCurrentPage(1);
+        paginate(1)
     }
+
 
     return(
         <div className='fltros'>

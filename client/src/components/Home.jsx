@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDogs, listOfTemperaments } from '../actions/index';    
+import { getDogs, listOfTemperaments, setDetails } from '../actions/index';
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 import Card from './Card';
@@ -12,9 +12,10 @@ import Nav from './Nav';
 
 
 export default function Home() {
-    const dispatch = useDispatch();             
-    const allDogs = useSelector ((state) => state.dogs);     
-    
+    const dispatch = useDispatch();
+    const allDogs = useSelector((state) => state.dogs);
+
+
 
     //PAGINADO//
 
@@ -27,34 +28,39 @@ export default function Home() {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
-    
-    useEffect (() => {                                      
+
+    useEffect(() => {
         dispatch(listOfTemperaments());
         dispatch(getDogs());
+        dispatch(setDetails())
     }, [dispatch]);
-//------------------------------------------------------------------------------------------
-    function handleClick(e){
+    //------------------------------------------------------------------------------------------
+    function handleClick(e) {
         e.preventDefault();
         dispatch(getDogs());
     }
 
-
-    return(
-<div className='home'>
-          <div className='create_dog'>
+    return (
+        <div className='home'>
+            <div className='create_dog'>
                 <Link to='/dog'>
                     <button className="b1">CREA TU RAZA</button>
                 </Link>
             </div>
             <div className='load'>
                 <button onClick={e => handleClick(e)}
-                className='ref'>RECARGAR</button>
+                    className='ref'>RECARGAR</button>
             </div>
             <div className='busq'>
-                <SearchBar />
+                <SearchBar 
+                paginate={paginate}
+                />
             </div>
             <div className='filtros'>
-                <Nav />
+                <Nav 
+                paginate ={paginate}
+                 />
+                
             </div>
             <div className='paginado'>
                 <Pagination
@@ -62,27 +68,27 @@ export default function Home() {
                     allDogs={allDogs.length}
                     paginate={paginate}
                 />
-                </div>
+            </div>
             <div className='cards'>
                 {currentDog.length > 0 ? (
                     currentDog.map(e => {
                         return (
-                            <Card 
+                            <Card
                                 key={e.id}
                                 id={e.id}
-                                name={e.name} 
-                                image={e.image} 
+                                name={e.name}
+                                image={e.image}
                                 temperament={`Temperaments: ${e.temperament}`}
                                 weightMin={`Weight Min: ${e.weightMin} kg.`}
                                 weightMax={`Weight Max: ${e.weightMax} kg.`}
                             />
-                            );
-                        })
+                        );
+                    })
                 ) : (
-                        <div>
-                            <Loading/>
-                        </div>     
-                    )}
+                    <div>
+                        <Loading />
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ body::-webkit-scrollbar-thumb {
 }
 .home {
   /* background-image: url('https://images.ecestaticos.com/H4CUeGslvPRglrmCtaP7A4wz9KQ=/0x115:2265x1390/1600x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F8ec%2F08c%2F85c%2F8ec08c85c866ccb70c4f1c36492d890f.jpg'); */
-background-color: beige;
+  background-color: beige;
 }
 
 .cards {
