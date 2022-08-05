@@ -7,7 +7,7 @@ import Loading from './Loading';
 import '../styles/Home.css';
 import '../styles/Nav.css'
 
-export default function Nav({}){
+export default function Nav({paginate}){
     const dispatch = useDispatch();
     const temperaments = useSelector((state) => state.temperaments); 
     const [currentPage,setCurrentPage] = useState(1);
@@ -22,18 +22,21 @@ export default function Nav({}){
         e.preventDefault();
         dispatch(filterByCreated(e.target.value));
         setCurrentPage(1);
+        paginate(1);
     }
 //------------------------------------------------------------------------------------------
     function handleFilterByTemp(e){
         e.preventDefault();
         dispatch(filterByTemp(e.target.value));
-        setCurrentPage(1);     
+        setCurrentPage(1);
+        paginate(1);    
     }
 //------------------------------------------------------------------------------------------
     function handleOrderByName(e){
         e.preventDefault();
         dispatch(orderByName(e.target.value));
         setCurrentPage(1);
+        paginate(1);
     }
 //------------------------------------------------------------------------------------------
     function handleOrderByWeight(e){

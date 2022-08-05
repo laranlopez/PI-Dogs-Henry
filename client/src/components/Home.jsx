@@ -57,7 +57,9 @@ export default function Home() {
                 />
             </div>
             <div className='filtros'>
-                <Nav/>
+                <Nav
+                paginate={paginate}
+                />
                 
             </div>
             <div className='paginado'>
