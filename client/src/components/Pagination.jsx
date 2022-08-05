@@ -10,6 +10,7 @@ export default function Pagination({ dogsPerPage, allDogs, paginate}) {
         pageNumbers.push(i+1)
     }
 
+
     return(
         <nav>
             <ul className='paginate'>

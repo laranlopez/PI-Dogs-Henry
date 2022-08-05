@@ -85,7 +85,6 @@ router.get('/temperaments', async (req, res) => {
             const allTemperaments = await Temperament.findAll({
                 order: [["temperament", "ASC"]],
             });
-            console.log(temperamentUnique)
             res.send(allTemperaments);
         } catch (error){
             console.log(error);
@@ -98,6 +97,7 @@ router.get('/temperaments', async (req, res) => {
 //Recibe los datos recolectados desde el formulario controlado
 //de la ruta de creación de raza de perro por body
 //Crea una raza de perro en la base de datos
+
 
 router.post('/dog', async (req, res) => {
     let { name,
@@ -137,6 +137,7 @@ router.post('/dog', async (req, res) => {
         res.status(404).send('Completa todos los campos')
     }
 });
+
 
 
 

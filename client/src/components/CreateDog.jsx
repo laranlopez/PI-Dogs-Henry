@@ -16,16 +16,16 @@ export default function CreateDog(){
 
     const[input, setInput] = useState({
         name: '',
-        heightMin: 0,
-        heightMax: 0,
-        weightMin: 0,
-        weightMax: 0,   
+        heightMin: '',
+        heightMax: '',
+        weightMin: '',
+        weightMax: '',   
         lifespan: '',
         image: '',
         temperament: [],
     })
 
-    const [error, setError] = useState({first:true});
+    const [error, setError] = useState({});
 
     const validations = function(input){
         const error = {}
@@ -95,6 +95,7 @@ export default function CreateDog(){
 //------------------------------------------------------------------------------------------
     function handleDelete(e){
         setInput({
+            ...input,
             temperament: input.temperament.filter(tem => tem !== e)
         });
     }
@@ -107,10 +108,10 @@ export default function CreateDog(){
             alert('Raza creada!')
             setInput({
                 name: '',
-                heightMin: 0,
-                heightMax: 0,
-                weightMin: 0,
-                weightMax: 0,
+                heightMin: '',
+                heightMax: '',
+                weightMin: '',
+                weightMax: '',
                 lifespan: '',
                 image: '',
                 temperament: [],
@@ -143,7 +144,7 @@ export default function CreateDog(){
                         <span>
                             <label>Min* </label>
                             <input className='amin'
-                            type='number'
+                            type='text'
                             value={input.heightMin}
                             placeholder='Solo numeros'
                             name='heightMin'
@@ -152,7 +153,7 @@ export default function CreateDog(){
                             />
                             <label>Max* </label>
                             <input className='amax'
-                            type='number'
+                            type='text'
                             value={input.heightMax}
                             placeholder='Solo numeros'
                             name='heightMax'
@@ -167,7 +168,7 @@ export default function CreateDog(){
                         <span>
                             <label>Min* </label>
                             <input className='pmin'
-                            type='number'
+                            type='text'
                             value={input.weightMin}
                             placeholder='Solo numeros'
                             name='weightMin'
@@ -176,7 +177,7 @@ export default function CreateDog(){
                             />
                             <label>Max* </label>
                             <input className='pmax'
-                            type='number'
+                            type='text'
                             value={input.weightMax}
                             placeholder='Solo numeros'
                             name='weightMax'
@@ -249,15 +250,3 @@ export default function CreateDog(){
         </div>
     );
 }
-
-
-// setInput(input => {
-//     const newInput = {
-//         ...input,
-//         [e.target.name] : e.target.value
-// }
-// const error = validations(newInput);
-// setError(error);
-// return newInput;
-// })
-// }
