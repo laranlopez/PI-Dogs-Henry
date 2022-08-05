@@ -35,7 +35,7 @@ export default function Nav({paginate}){
         e.preventDefault();
         dispatch(orderByName(e.target.value));
         setCurrentPage(1);
-        paginate(1)
+        paginate(1  )
     }
 //------------------------------------------------------------------------------------------
     function handleOrderByWeight(e){

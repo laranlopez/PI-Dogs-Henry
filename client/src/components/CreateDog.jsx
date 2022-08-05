@@ -35,24 +35,38 @@ export default function CreateDog(){
         else if(!/^[a-zA-Z\s]*$/.test(input.name)) {
             error.name = "Solo debe contener letras y espacios";
         }
-        if(!Number(input.heightMin) || Number(input.heightMin) < 0 ){
-            error.heightMin = 'Debe ingresar una altura min, mayor a 0';
+        if(!Number(input.heightMin)){
+            error.heightMin = 'Altura min es requerida';
         }
-       else if(Number(input.heightMin) > Number(input.heightMax)){
-            error.heightMin = 'Altura Min no puede ser mayor a la altura maxima';
+        if(!Number(input.heightMax)){
+            error.heightMax = 'Altura maxima es requerida';
         }
-        if(!Number(input.heightMax) || Number(input.heightMax) < 0){
-            error.heightMax = 'Debe ingresar una altura max, mayor a 0';
+        if(!Number(input.weightMin)){
+            error.weightMin = 'Peso min es requerido';
         }
-        if(!Number(input.weightMin) || Number(input.weightMin)< 0 ){
-            error.weightMin = 'Debe ingresar un peso minimo, mayor a 0';
+        if(!Number(input.weightMax)){
+            error.weightMax = 'Peso max es requerido';
         }
-        if(Number(input.weightMin) > Number(input.weightMax)){
-            error.weightMin = 'Peso Min no puede ser mayor al peso maximo';
-         }
-         if(!Number(input.weightMax) ||Number(input.weightMax) < 0 ){
-            error.weightMax = 'Debe ingresar un peso max, mayor a 0';
-         }
+        if(Number(input.heightMin < 0)){
+            error.heightMin = 'Altura min debe ser mayor a 0';
+        }
+        if(Number(input.heightMin)> Number(input.heightMax)){
+            error.heightMin = 'Altura min no puede ser mayor a la altura max';
+        }
+        
+        if(Number(input.heightMax < 0)){
+            error.heightMax = 'Altura max debe ser mayor a 0';
+        }
+        
+        if(Number(input.weightMin< 0)){
+            error.weightMin = 'Peso min debe ser mayor a 0';
+        }
+        if(Number(input.weightMin )> Number(input.weightMax)){
+            error.weightMin = 'Peso min no puede ser mayor al peso max';
+        }
+        if(Number(input.weightMax < 0)){
+            error.weightMax = 'Peso max debe ser mayor a 0';
+        }
         if(Number(input.lifespan) < 0 || Number(input.lifespan )> 30){
             error.lifespan = 'debe ser entre 0 y 30 ';
         }
